@@ -1,10 +1,17 @@
+import { Container, Items } from "./styles"
+
 import Post from "../Post"
 
 const Article = () => {
   return (
     <>
-      <Post />
-      <h1>Article.js</h1>
+      <Container>
+        <Items>
+          <Post />
+          <Post />
+          <Post />
+        </Items>
+      </Container>
     </>
   )
 }

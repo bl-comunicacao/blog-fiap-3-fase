@@ -1,18 +1,31 @@
 import styled from "styled-components"
 
-export const Container = styled.header`
+export const HeaderContainer = styled.header`
+  width: 100%;
+  margin-top: 3.2rem;
+  margin-bottom: 12.8rem;
+`
+
+export const Container = styled.div`
   width: 100%;
   max-width: 144rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 0 auto;
   padding-left: 3.2rem;
   padding-right: 3.2rem;
 `
 
+export const Items = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
 export const Logo = styled.div`
-  width: 9.6rem;
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--white);
+  }
 `
 export const Search = styled.div``
 
