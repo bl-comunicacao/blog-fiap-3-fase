@@ -1,11 +1,11 @@
 import Header from "./components/Header"
-import Main from "./pages/Main"
+import AppRoutes from "./routes"
 
 function App() {
   return (
     <>
       <Header />
-      <Main />
+      <AppRoutes />
     </>
   )
 }
