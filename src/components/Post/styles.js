@@ -1,6 +1,9 @@
 import styled from "styled-components"
 
 export const PostContainer = styled.div`
+  width: 100%;
+  max-width: 41.6rem;
+
   span {
     font-size: 1.4rem;
     font-weight: 500;

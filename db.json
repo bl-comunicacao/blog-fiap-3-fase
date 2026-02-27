@@ -1,0 +1,58 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "category": "Tecnologia",
+      "title": "Introdução ao React com Vite",
+      "resume": "Aprenda a configurar um projeto React moderno utilizando Vite.",
+      "description": "Neste artigo abordamos a criação de um projeto React com Vite, configuração inicial, estrutura de pastas, boas práticas e otimizações para performance.",
+      "author": "Bruno Lopes",
+      "date": "2026-02-20"
+    },
+    {
+      "id": 2,
+      "category": "Front-end",
+      "title": "Boas práticas com Sass e @use",
+      "resume": "Organize seu CSS com recursos avançados do Sass.",
+      "description": "Exploramos como utilizar @use, @forward, mixins e maps para criar uma arquitetura escalável e organizada em projetos front-end.",
+      "author": "Bruno Lopes",
+      "date": "2026-02-18"
+    },
+    {
+      "id": 3,
+      "category": "Performance",
+      "title": "Como alcançar nota 100 no Lighthouse Mobile",
+      "resume": "Estratégias práticas para melhorar performance em dispositivos móveis.",
+      "description": "Abordamos otimização de imagens, lazy loading, redução de JavaScript, uso adequado de fontes e técnicas para melhorar métricas como LCP, CLS e FID.",
+      "author": "Bruno Lopes",
+      "date": "2026-02-15"
+    },
+    {
+      "id": 4,
+      "category": "UX/UI",
+      "title": "Criando layouts responsivos eficientes",
+      "resume": "Estruture layouts flexíveis com CSS Grid e Flexbox.",
+      "description": "Veja como combinar CSS Grid e Flexbox para construir layouts modernos, responsivos e acessíveis, mantendo consistência visual e semântica.",
+      "author": "Bruno Lopes",
+      "date": "2026-02-12"
+    },
+    {
+      "id": 5,
+      "category": "JavaScript",
+      "title": "Manipulação dinâmica de formulários",
+      "resume": "Validação e formatação em tempo real com JavaScript.",
+      "description": "Implementação de máscaras, validação de campos, controle de estados e integração com APIs para tornar formulários mais interativos e seguros.",
+      "author": "Bruno Lopes",
+      "date": "2026-02-10"
+    },
+    {
+      "id": 6,
+      "category": "Acessibilidade",
+      "title": "Melhorando a acessibilidade em aplicações web",
+      "resume": "Práticas essenciais para tornar seu site mais inclusivo.",
+      "description": "Entenda como aplicar atributos ARIA, melhorar contraste, navegação por teclado e estrutura semântica para atender às diretrizes de acessibilidade.",
+      "author": "Bruno Lopes",
+      "date": "2026-02-08"
+    }
+  ]
+}

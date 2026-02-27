@@ -1,23 +1,18 @@
 import { PostContainer } from "./styles"
 
-const Post = () => {
+const Post = (props) => {
   return (
     <PostContainer>
-      <img src="" alt="" />
-      <span>Tecnologia</span>
-      <h3>O guia definitivo para desenvolvedores</h3>
-      <p>
-        Este artigo apresenta as melhores práticas e dicas para desenvolvedores
-        em tecnologia.
-      </p>
+      {/* <img src="" alt="" /> */}
+      <span>{props.category}</span>
+      <h3>{props.title}</h3>
+      <p>{props.resume}</p>
 
       <div>
-        <div className="profile">
-          <img src="" alt="" />
-        </div>
+        <div className="profile">{/* <img src="" alt="" /> */}</div>
         <div>
-          <h6>João Silva</h6>
-          <p>Publicado em 24/03/2026</p>
+          <h6>{props.author}</h6>
+          <p>Publicado em {props.date}</p>
         </div>
       </div>
     </PostContainer>
