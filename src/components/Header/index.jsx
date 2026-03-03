@@ -3,12 +3,12 @@ import {
   Container,
   Items,
   Logo,
-  Search,
-  SearchInput,
   Menu,
   Nav,
   NavLink,
 } from "./styles"
+
+import logo from "../../assets/svg/logo.svg"
 
 const Header = () => {
   return (
@@ -16,21 +16,12 @@ const Header = () => {
       <Container>
         <Items>
           <Logo>
-            <h1>BFIAP</h1>
+            <img src={logo} alt="" />
           </Logo>
-
-          <Search>
-            <SearchInput
-              type="text"
-              name="search"
-              id="search"
-              placeholder="Buscar"
-            ></SearchInput>
-          </Search>
 
           <Menu>
             <Nav>
-              <NavLink href="#">Posts</NavLink>
+              <NavLink href="/login">Login</NavLink>
             </Nav>
           </Menu>
         </Items>

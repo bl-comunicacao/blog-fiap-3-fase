@@ -20,39 +20,7 @@ export const Items = styled.div`
   justify-content: space-between;
 `
 
-export const Logo = styled.div`
-  h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--white);
-  }
-`
-export const Search = styled.div``
-
-export const SearchInput = styled.input`
-  width: 100%;
-  min-width: 38rem;
-  height: 4.8rem;
-  font-size: 1.6rem;
-  color: var(--white);
-  background-color: #151b26;
-  border: 0;
-  border-radius: 8px;
-  padding: 0.8rem 1.6rem;
-  transition: 0.3s ease;
-  position: relative;
-
-  &:focus,
-  &:focus-visible {
-    outline: none;
-  }
-
-  &::placeholder {
-    font-size: 1.4rem;
-    color: var(--white);
-    opacity: 0.4;
-  }
-`
+export const Logo = styled.div``
 
 export const Menu = styled.div``
 
@@ -62,9 +30,10 @@ export const Nav = styled.nav`
 `
 
 export const NavLink = styled.a`
-  font-size: 1.6rem;
+  display: block;
+  font-size: 1.8rem;
   text-decoration: none;
-  color: var(--white);
+  color: var(--white-light);
   transtion: opacity 0.3s ease;
 
   &:hover {

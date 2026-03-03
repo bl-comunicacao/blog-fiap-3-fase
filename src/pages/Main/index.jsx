@@ -1,4 +1,4 @@
-import { Container, Items } from "./styles"
+import { ButtonInput, Container, Items, Search, SearchInput } from "./styles"
 
 import api from "../../services/api"
 import Post from "../../components/Post"
@@ -16,16 +16,22 @@ const Main = () => {
   return (
     <>
       <Container>
+        <h1>Artigos</h1>
+
+        <Search>
+          <SearchInput
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Buscar"
+          ></SearchInput>
+
+          <ButtonInput>Buscar</ButtonInput>
+        </Search>
+
         <Items>
           {posts.map((post) => (
-            <Post
-              key={post.id}
-              category={post.category}
-              title={post.title}
-              resume={post.resume}
-              author={post.author}
-              date={post.date}
-            />
+            <Post key={post.id} post={post} />
           ))}
         </Items>
       </Container>

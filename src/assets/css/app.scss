@@ -3,15 +3,24 @@
 @use "layout" as *;
 
 :root {
-  --white: #fff;
-  --black: #000;
-  --color-background: #1e2123;
-
   --blue: #1b69d2;
   --blue-light: #5390e3;
   --blue-dark: #1357b3;
 
-  --color-primary: #da355e;
+  --white-light: #f7f9fc;
+  --white-normal: #e8ebf0;
+  --white-dark: #d8dbe3;
+
+  --black-light: #151b26;
+  --black-normal: #0f141f;
+  --black-dark: #06090f;
+
+  --gray-2: #2b2b2c;
+  --gray-3: #424344;
+  --gray-4: #595a5c;
+  --gray-5: #717274;
+  --gray-6: #888a8c;
+  --gray-7: #9ea0a3;
 }
 
 *,
@@ -24,14 +33,14 @@
 }
 
 html {
-  font-family: "Poppins", sans-serif;
+  font-family: "Rubik", sans-serif;
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
 body {
   width: 100%;
-  background-color: var(--color-background);
+  background-color: var(--black-dark);
 }
 
 img,

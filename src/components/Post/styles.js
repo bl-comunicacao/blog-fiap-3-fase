@@ -3,55 +3,45 @@ import styled from "styled-components"
 export const PostContainer = styled.div`
   width: 100%;
   max-width: 41.6rem;
+  border: 0.1rem solid var(--black-light);
+  border-radius: 0.4rem;
+
+  .description {
+    padding: 1.8rem;
+  }
 
   span {
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: var(--blue-light);
-    margin-bottom: 0.8rem;
-    display: inline-block;
+    display: block;
+    letter-spacing: 0.2rem;
+
+    &.date {
+      font-size: 1.2rem;
+      color: var(--gray-4);
+
+      margin-bottom: 0.8rem;
+    }
+
+    &.category {
+      font-size: 1.8rem;
+      color: var(--blue-light);
+
+      margin-bottom: 1.6rem;
+    }
   }
 
   h3 {
     font-size: 2.4rem;
-    font-weight: 600;
-    color: var(--white);
+    font-weight: 400;
+    color: var(--white-light);
     margin-bottom: 0.8rem;
   }
 
   p {
     font-size: 1.6rem;
     font-weight: 300;
-    color: var(--white);
-    margin-bottom: 3.2rem;
-  }
-
-  & > div {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
-
-    .profile {
-      width: 4.8rem;
-      height: 4.8rem;
-      border-radius: 50%;
-      overflow: hidden;
-      background-color: #151b26;
-    }
-
-    h6 {
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--blue-light);
-    }
-
-    p {
-      font-size: 1.2rem;
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 0;
-    }
+    color: var(--gray-5);
+    margin-bottom: 0;
   }
 `
