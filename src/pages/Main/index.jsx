@@ -1,4 +1,9 @@
-import { ButtonInput, Container, Items, Search, SearchInput } from "./styles"
+import Input from "../../components/Ui/Input"
+import Button from "../../components/Ui/Button"
+import Container from "../../components/Ui/Container"
+import Title from "../../components/Ui/Title"
+import { FiSearch } from "react-icons/fi"
+import { Items, Search } from "./styles"
 
 import api from "../../services/api"
 import Post from "../../components/Post"
@@ -16,17 +21,19 @@ const Main = () => {
   return (
     <>
       <Container>
-        <h1>Artigos</h1>
+        <Title size="lg" align="center">
+          Artigos
+        </Title>
 
         <Search>
-          <SearchInput
+          <Input
             type="text"
             name="search"
             id="search"
             placeholder="Buscar"
-          ></SearchInput>
-
-          <ButtonInput>Buscar</ButtonInput>
+            icon={FiSearch}
+          />
+          <Button>Buscar</Button>
         </Search>
 
         <Items>
