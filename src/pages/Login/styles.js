@@ -16,6 +16,10 @@ export const Logo = styled.div`
     font-size: 4.2rem;
     font-weight: 400;
     color: var(--white-light);
+
+    span {
+      color: var(--blue-light);
+    }
   }
 `
 
@@ -25,6 +29,6 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 1.6rem;
   width: 100%;
-  max-width: 46rem;
+  max-width: 38rem;
   margin: 0 auto;
 `

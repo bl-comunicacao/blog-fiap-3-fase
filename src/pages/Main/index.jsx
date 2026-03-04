@@ -9,6 +9,8 @@ import api from "../../services/api"
 import Post from "../../components/Post"
 import { useState, useEffect } from "react"
 
+import { Link } from "react-router-dom"
+
 const Main = () => {
   const [posts, setPosts] = useState([])
 

@@ -15,7 +15,7 @@ const Header = () => {
     <HeaderContainer>
       <Container>
         <Items>
-          <Logo>
+          <Logo href="/">
             <img src={logo} alt="" />
           </Logo>
 

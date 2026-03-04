@@ -1,16 +1,19 @@
 import { PostContainer } from "./styles"
+import { Link } from "react-router-dom"
 
 const Post = ({ post }) => {
   return (
-    <PostContainer>
-      <div className="description">
-        <span className="date">{post.date}</span>
-        <span className="category">{post.category}</span>
+    <Link to={`/post/${post.id}`}>
+      <PostContainer>
+        <div className="description">
+          <span className="date">{post.date}</span>
+          <span className="category">{post.category}</span>
 
-        <h3 className="title">{post.title}</h3>
-        <p className="resume">{post.resume}</p>
-      </div>
-    </PostContainer>
+          <h3 className="title">{post.title}</h3>
+          <p className="resume">{post.resume}</p>
+        </div>
+      </PostContainer>
+    </Link>
   )
 }
 

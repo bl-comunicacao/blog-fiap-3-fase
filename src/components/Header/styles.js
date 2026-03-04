@@ -20,7 +20,7 @@ export const Items = styled.div`
   justify-content: space-between;
 `
 
-export const Logo = styled.div``
+export const Logo = styled.a``
 
 export const Menu = styled.div``
 

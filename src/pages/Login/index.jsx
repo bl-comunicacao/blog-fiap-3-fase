@@ -4,6 +4,7 @@ import Container from "../../components/Ui/Container"
 import Title from "../../components/Ui/Title"
 import { Logo, Form } from "./styles"
 import { FiUser, FiUnlock } from "react-icons/fi"
+import { Link } from "react-router-dom"
 
 import logo from "../../assets/svg/logo.svg"
 
@@ -11,12 +12,14 @@ const Login = () => {
   return (
     <>
       <Container>
-        <Logo>
-          <img src={logo} alt="Logotipo do Blog" />
-          <p>
-            Blog<span>.</span>
-          </p>
-        </Logo>
+        <Link to="/">
+          <Logo>
+            <img src={logo} alt="Logotipo do Blog" />
+            <p>
+              Blog<span>.</span>
+            </p>
+          </Logo>
+        </Link>
 
         <Title size="md" align="center">
           Olá, faça o login para continuar.
