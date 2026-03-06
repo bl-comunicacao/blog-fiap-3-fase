@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom"
 import { StyledButton } from "./styles"
 
-const Button = ({ to, href, ...props }) => {
-  if (to) {
-    return <StyledButton as={Link} to={to} {...props} />
-  }
+const Button = ({ to, href, variant = "primary", children, ...props }) => {
+  const Component = to ? Link : href ? "a" : "button"
 
-  if (href) {
-    return <StyledButton as="a" href={href} {...props} />
-  }
-
-  return <StyledButton {...props} />
+  return (
+    <StyledButton
+      as={Component}
+      to={to}
+      href={href}
+      $variant={variant}
+      {...props}
+    >
+      {children}
+    </StyledButton>
+  )
 }
 
 export default Button

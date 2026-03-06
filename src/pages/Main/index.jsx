@@ -8,8 +8,7 @@ import { Items, Search } from "./styles"
 import api from "../../services/api"
 import Post from "../../components/Post"
 import { useState, useEffect } from "react"
-
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const Main = () => {
   const [posts, setPosts] = useState([])
@@ -20,22 +19,41 @@ const Main = () => {
     })
   }, [])
 
+  const initialValueForm = {
+    search: "",
+  }
+
+  const [form, setForm] = useState(initialValueForm)
+  const navigate = useNavigate()
+
+  function onChange(event) {
+    const { value, name } = event.target
+    setForm({ ...form, [name]: value })
+  }
+
+  function handleSearch(event) {
+    event.preventDefault()
+    console.log(event)
+    navigate(`/search/${form.search}`)
+  }
+
   return (
     <>
       <Container>
         <Title size="lg" align="center">
-          Artigos
+          Posts
         </Title>
 
-        <Search>
+        <Search onSubmit={handleSearch}>
           <Input
             type="text"
             name="search"
             id="search"
             placeholder="Buscar"
             icon={FiSearch}
+            onChange={onChange}
           />
-          <Button>Buscar</Button>
+          <Button type="submit">Buscar</Button>
         </Search>
 
         <Items>

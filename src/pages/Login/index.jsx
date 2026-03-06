@@ -22,7 +22,7 @@ const Login = () => {
         </Link>
 
         <Title size="md" align="center">
-          Olá, faça o login para continuar.
+          Área restrita para professores
         </Title>
 
         <Form action="#">
@@ -31,7 +31,7 @@ const Login = () => {
             name="username"
             id="username"
             placeholder="Digite seu usuário"
-            autoComplete="current-password"
+            autoComplete="username"
             icon={FiUser}
           />
 
@@ -44,8 +44,12 @@ const Login = () => {
             icon={FiUnlock}
           />
 
-          <Button type="submit" $full>
+          <Button to="/dashboard" $full>
             Acessar
+          </Button>
+
+          <Button to="/" $full variant="secondary">
+            Sou aluno
           </Button>
         </Form>
       </Container>

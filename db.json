@@ -1,27 +1,7 @@
 {
   "posts": [
     {
-      "id": 1,
-      "category": "Tecnologia",
-      "title": "Introdução completa ao React com Vite",
-      "resume": "Aprenda a configurar um projeto React moderno com Vite de forma prática e eficiente.",
-      "description": "Neste artigo abordamos a criação de um projeto React com Vite, configuração inicial, estrutura de pastas, boas práticas e otimizações para performance.",
-      "author": "Lucas Andrade",
-      "date": "2026-02-20",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "category": "Front-end",
-      "title": "Boas práticas avançadas com Sass e @use",
-      "resume": "Organize seu CSS com recursos avançados do Sass e crie projetos escaláveis.",
-      "description": "Exploramos como utilizar @use, @forward, mixins e maps para criar uma arquitetura escalável e organizada em projetos front-end.",
-      "author": "Mariana Costa",
-      "date": "2026-02-18",
-      "userId": 2
-    },
-    {
-      "id": 3,
+      "id": "3",
       "category": "Performance",
       "title": "Como atingir nota 100 no Lighthouse",
       "resume": "Estratégias práticas para melhorar performance e métricas no mobile.",
@@ -29,26 +9,99 @@
       "author": "Rafael Martins",
       "date": "2026-02-15",
       "userId": 3
+    },
+    {
+      "id": "4",
+      "category": "CSS",
+      "title": "Dominando Flexbox no layout moderno",
+      "resume": "Como criar layouts flexíveis e responsivos com Flexbox.",
+      "description": "Explicamos propriedades como flex-direction, justify-content, align-items e gap, além de exemplos práticos para construir layouts responsivos e alinhamentos complexos com poucas linhas de CSS.",
+      "author": "Juliana Costa",
+      "date": "2026-02-18",
+      "userId": 2
+    },
+    {
+      "id": "5",
+      "category": "JavaScript",
+      "title": "Manipulação de DOM com boas práticas",
+      "resume": "Técnicas modernas para manipular o DOM de forma eficiente.",
+      "description": "Mostramos como selecionar elementos corretamente, evitar reflows desnecessários e organizar eventos de forma eficiente para melhorar performance e manutenção do código.",
+      "author": "Carlos Henrique",
+      "date": "2026-02-20",
+      "userId": 4
+    },
+    {
+      "id": "6",
+      "category": "React",
+      "title": "Organização de projetos React escaláveis",
+      "resume": "Estrutura de pastas e componentes para aplicações grandes.",
+      "description": "Apresentamos uma arquitetura de projeto que separa componentes, páginas, serviços e hooks, facilitando manutenção, reutilização e crescimento da aplicação.",
+      "author": "Marina Lopes",
+      "date": "2026-02-22",
+      "userId": 1
+    },
+    {
+      "id": "7",
+      "category": "UX",
+      "title": "Microinterações que melhoram a experiência",
+      "resume": "Pequenos detalhes que fazem grande diferença no UX.",
+      "description": "Exploramos microinterações como feedback visual, animações suaves e estados de carregamento que tornam interfaces mais intuitivas e agradáveis para o usuário.",
+      "author": "Fernanda Silva",
+      "date": "2026-02-24",
+      "userId": 5
+    },
+    {
+      "id": "9",
+      "category": "Acessibilidade",
+      "title": "Acessibilidade web na prática",
+      "resume": "Como tornar sites acessíveis para todos os usuários.",
+      "description": "Apresentamos técnicas para melhorar acessibilidade com uso correto de ARIA, contraste adequado, navegação por teclado e estrutura semântica no HTML.",
+      "author": "Patricia Souza",
+      "date": "2026-02-28",
+      "userId": 6
+    },
+    {
+      "id": "10",
+      "category": "CSS",
+      "title": "Criando animações fluidas com CSS",
+      "resume": "Utilizando keyframes e transitions para interfaces modernas.",
+      "description": "Mostramos como aplicar transitions e animações com keyframes de forma performática, evitando impacto negativo na renderização da página.",
+      "author": "Eduardo Ferreira",
+      "date": "2026-03-01",
+      "userId": 2
+    },
+    {
+      "id": "11",
+      "category": "Performance",
+      "title": "Lazy loading de imagens e componentes",
+      "resume": "Carregamento sob demanda para melhorar performance.",
+      "description": "Explicamos como implementar lazy loading nativo em imagens e dividir bundles JavaScript para reduzir tempo de carregamento inicial.",
+      "author": "Lucas Mendes",
+      "date": "2026-03-03",
+      "userId": 4
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "user": "lucasandrade",
       "name": "Lucas Andrade",
-      "email": "lucas.andrade@email.com"
+      "email": "lucas.andrade@email.com",
+      "password": "123456"
     },
     {
-      "id": 2,
+      "id": "2",
       "user": "marianacosta",
       "name": "Mariana Costa",
-      "email": "mariana.costa@email.com"
+      "email": "mariana.costa@email.com",
+      "password": "123456"
     },
     {
-      "id": 3,
+      "id": "3",
       "user": "rafaelmartins",
       "name": "Rafael Martins",
-      "email": "rafael.martins@email.com"
+      "email": "rafael.martins@email.com",
+      "password": "123456"
     }
   ]
 }

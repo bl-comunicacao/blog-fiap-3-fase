@@ -1,4 +1,7 @@
-import { PostContainer } from "./styles"
+import Title from "../../components/Ui/Title"
+import Button from "../../components/Ui/Button"
+
+import { PostContainer, PostActions } from "./styles"
 
 import { useState, useEffect } from "react"
 import api from "../../services/api"
@@ -13,7 +16,7 @@ const Post = () => {
     api.get("/posts/" + idPost).then((response) => {
       setPost(response.data)
 
-      api.get("/user/" + response.data.id).then((response) => {
+      api.get("/users/" + response.data.id).then((response) => {
         setUser(response.data)
       })
     })
@@ -25,9 +28,21 @@ const Post = () => {
         <span className="date">{post.date}</span>
         <span className="category">{post.category}</span>
 
-        <h3 className="title">{post.title}</h3>
+        <Title size="xl" align="center">
+          {post.title}
+        </Title>
+
         <p>{post.description}</p>
+
+        <div className="profile">
+          <div className="photo"></div>
+          <p>{user.name}</p>
+        </div>
       </PostContainer>
+
+      <PostActions>
+        <Button to="/">Voltar para home</Button>
+      </PostActions>
     </>
   )
 }

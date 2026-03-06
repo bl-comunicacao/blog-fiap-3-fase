@@ -4,6 +4,10 @@ export const HeaderContainer = styled.header`
   width: 100%;
   margin-top: 3.2rem;
   margin-bottom: 12.8rem;
+
+  @media (max-width: 800px) {
+    margin-bottom: 6.4rem;
+  }
 `
 
 export const Container = styled.div`
