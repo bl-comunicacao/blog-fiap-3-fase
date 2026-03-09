@@ -1,73 +1,97 @@
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 import Input from "../../components/Ui/Input"
 import Textarea from "../../components/Ui/Textarea"
 import Button from "../../components/Ui/Button"
 import Container from "../../components/Ui/Container"
 import Title from "../../components/Ui/Title"
 import { Form } from "./styles"
+
 import { FiType, FiFileText, FiUser } from "react-icons/fi"
 
 const CreatePost = () => {
+  const navigate = useNavigate()
+
+  const [title, setTitle] = useState("")
+  const [resume, setResume] = useState("")
+  const [author, setAuthor] = useState("")
+  const [description, setDescription] = useState("")
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const newPost = {
+      title,
+      resume,
+      author,
+      description,
+      date: new Date().toISOString(),
+    }
+
+    await fetch("http://localhost:4000/posts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+
+    navigate("/dashboard")
+  }
+
   return (
-    <>
-      <Container>
-        <Title size="md" align="center">
-          Adicionar post
-          <p>Preencha os campos abaixo para adicionar um novo post ao blog</p>
-        </Title>
+    <Container>
+      <Title size="md" align="center">
+        Adicionar post
+        <p>Preencha os campos abaixo para adicionar um novo post</p>
+      </Title>
 
-        <Form action="#">
-          <div className="form-group">
-            <Input
-              type="text"
-              name="title"
-              id="title"
-              placeholder="Digite um título"
-              autoComplete="off"
-              icon={FiType}
-              maxLength={120}
-              required
-            />
-
-            <Input
-              type="text"
-              name="resume"
-              id="resume"
-              placeholder="Digite um resumo curto"
-              autoComplete="off"
-              icon={FiFileText}
-              maxLength={200}
-              required
-            />
-
-            <Input
-              type="text"
-              name="author"
-              id="author"
-              placeholder="Digite o nome do autor"
-              autoComplete="name"
-              icon={FiUser}
-              maxLength={80}
-              required
-            />
-          </div>
-
-          <Textarea
-            name="description"
-            id="description"
-            placeholder="Digite o conteúdo completo"
-            rows={12}
-            required
+      <Form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <Input
+            type="text"
+            name="title"
+            placeholder="Digite um título"
+            icon={FiType}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
           />
 
-          <div className="actions">
-            <Button>Criar post</Button>
-            <Button to="/dashboard" variant="secondary">
-              Voltar
-            </Button>
-          </div>
-        </Form>
-      </Container>
-    </>
+          <Input
+            type="text"
+            name="resume"
+            placeholder="Digite um resumo"
+            icon={FiFileText}
+            value={resume}
+            onChange={(e) => setResume(e.target.value)}
+          />
+
+          <Input
+            type="text"
+            name="author"
+            placeholder="Digite o autor"
+            icon={FiUser}
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+          />
+        </div>
+
+        <Textarea
+          name="description"
+          rows={12}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+
+        <div className="actions">
+          <Button type="submit">Criar post</Button>
+          <Button to="/dashboard" variant="secondary">
+            Voltar
+          </Button>
+        </div>
+      </Form>
+    </Container>
   )
 }
 
