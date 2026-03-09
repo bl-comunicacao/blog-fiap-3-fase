@@ -1,6 +1,7 @@
 import Container from "../../components/Ui/Container"
 import Title from "../../components/Ui/Title"
-import { Items } from "./styles"
+import Button from "../../components/Ui/Button"
+import { Items, Actions } from "./styles"
 
 import api from "../../services/api"
 import Post from "../../components/Post"
@@ -31,6 +32,10 @@ const Dashboard = () => {
         <Title size="lg" align="center">
           Gerenciar posts
         </Title>
+
+        <Actions>
+          <Button to="/create-post">Criar novo post</Button>
+        </Actions>
 
         <Items>
           {posts.map((post) => (

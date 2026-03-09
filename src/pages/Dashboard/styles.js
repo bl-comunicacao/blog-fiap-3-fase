@@ -12,10 +12,17 @@ export const Items = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 6.4rem;
+  gap: 3.2rem;
 
   @media (max-width: 800px) {
     flex-direction: column;
     gap: 3.2rem;
   }
+`
+
+export const Actions = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4.2rem;
 `

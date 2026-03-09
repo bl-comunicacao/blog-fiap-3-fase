@@ -12,4 +12,10 @@ export const StyledTitle = styled.h1`
   font-weight: 400;
   text-align: ${({ $align }) => $align || "left"};
   margin-bottom: 3.2rem;
+
+  p {
+    font-size: 1.4rem;
+    color: var(--gray-5);
+    margin-top: 0.4rem;
+  }
 `
