@@ -12,11 +12,8 @@ export const Form = styled.form`
   .form-group {
     width: 100%;
     display: flex;
+    flex-direction: column;
     gap: 1.6rem;
-
-    @media (max-width: 800px) {
-      flex-direction: column;
-    }
 
     div {
       max-width: 100%;
