@@ -79,6 +79,7 @@ const CreatePost = () => {
 
         <Textarea
           name="description"
+          placeholder="Digite o conteúdo completo"
           rows={12}
           value={description}
           onChange={(e) => setDescription(e.target.value)}

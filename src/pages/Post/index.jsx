@@ -16,7 +16,7 @@ const Post = () => {
     api.get("/posts/" + idPost).then((response) => {
       setPost(response.data)
 
-      api.get("/users/" + response.data.id).then((response) => {
+      api.get("/users/" + response.data.userId).then((response) => {
         setUser(response.data)
       })
     })

@@ -22,7 +22,7 @@ const AppRoutes = () => {
 
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/create-post" element={<CreatePost />} />
-        <Route path="/edit-post/:id" element={<EditPost />} />
+        <Route path="/edit-post/:idPost" element={<EditPost />} />
       </Routes>
     </BrowserRouter>
   )

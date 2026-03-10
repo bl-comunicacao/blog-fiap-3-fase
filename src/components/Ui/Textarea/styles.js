@@ -8,7 +8,7 @@ export const TextareaWrapper = styled.div`
 
 export const StyledTextarea = styled.textarea`
   width: 100%;
-
+  font-family: "Rubik", sans-serif;
   font-size: 1.6rem;
   color: var(--white-light);
   background-color: var(--black-light);

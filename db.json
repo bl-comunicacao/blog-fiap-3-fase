@@ -8,17 +8,15 @@
       "description": "Abordamos otimização de imagens, lazy loading, redução de JavaScript, uso adequado de fontes e técnicas para melhorar métricas como LCP, CLS e FID.",
       "author": "Rafael Martins",
       "date": "2026-02-15",
-      "userId": 3
+      "userId": "3"
     },
     {
-      "id": "4",
-      "category": "CSS",
       "title": "Dominando Flexbox no layout moderno",
       "resume": "Como criar layouts flexíveis e responsivos com Flexbox.",
-      "description": "Explicamos propriedades como flex-direction, justify-content, align-items e gap, além de exemplos práticos para construir layouts responsivos e alinhamentos complexos com poucas linhas de CSS.",
-      "author": "Juliana Costa",
-      "date": "2026-02-18",
-      "userId": 2
+      "author": "Mariana Costa",
+      "description": "Propriedades como flex-direction, justify-content, align-items e gap, além de exemplos práticos para construir layouts responsivos e alinhamentos complexos com poucas linhas de CSS.",
+      "userId": "2",
+      "id": "4"
     },
     {
       "id": "5",
@@ -26,9 +24,9 @@
       "title": "Manipulação de DOM com boas práticas",
       "resume": "Técnicas modernas para manipular o DOM de forma eficiente.",
       "description": "Mostramos como selecionar elementos corretamente, evitar reflows desnecessários e organizar eventos de forma eficiente para melhorar performance e manutenção do código.",
-      "author": "Carlos Henrique",
+      "author": "Lucas Andrade",
       "date": "2026-02-20",
-      "userId": 4
+      "userId": "1"
     },
     {
       "id": "6",
@@ -36,9 +34,9 @@
       "title": "Organização de projetos React escaláveis",
       "resume": "Estrutura de pastas e componentes para aplicações grandes.",
       "description": "Apresentamos uma arquitetura de projeto que separa componentes, páginas, serviços e hooks, facilitando manutenção, reutilização e crescimento da aplicação.",
-      "author": "Marina Lopes",
+      "author": "Lucas Andrade",
       "date": "2026-02-22",
-      "userId": 1
+      "userId": "1"
     },
     {
       "id": "7",
@@ -46,9 +44,9 @@
       "title": "Microinterações que melhoram a experiência",
       "resume": "Pequenos detalhes que fazem grande diferença no UX.",
       "description": "Exploramos microinterações como feedback visual, animações suaves e estados de carregamento que tornam interfaces mais intuitivas e agradáveis para o usuário.",
-      "author": "Fernanda Silva",
+      "author": "Mariana Costa",
       "date": "2026-02-24",
-      "userId": 5
+      "userId": "2"
     },
     {
       "id": "9",
@@ -56,19 +54,17 @@
       "title": "Acessibilidade web na prática",
       "resume": "Como tornar sites acessíveis para todos os usuários.",
       "description": "Apresentamos técnicas para melhorar acessibilidade com uso correto de ARIA, contraste adequado, navegação por teclado e estrutura semântica no HTML.",
-      "author": "Patricia Souza",
+      "author": "Rafael Martins",
       "date": "2026-02-28",
-      "userId": 6
+      "userId": "3"
     },
     {
-      "id": "10",
-      "category": "CSS",
-      "title": "Criando animações fluidas com CSS",
+      "title": "Criando animações exclusivas fluidas com CSS",
       "resume": "Utilizando keyframes e transitions para interfaces modernas.",
-      "description": "Mostramos como aplicar transitions e animações com keyframes de forma performática, evitando impacto negativo na renderização da página.",
-      "author": "Eduardo Ferreira",
-      "date": "2026-03-01",
-      "userId": 2
+      "author": "Mariana Costa",
+      "description": "Mostramos como aplicar transitions e animações com keyframes de forma performática, evitando impacto negativo na renderização da página, criando mais valor para seu produto.",
+      "userId": "2",
+      "id": "10"
     },
     {
       "id": "11",
@@ -76,9 +72,9 @@
       "title": "Lazy loading de imagens e componentes",
       "resume": "Carregamento sob demanda para melhorar performance.",
       "description": "Explicamos como implementar lazy loading nativo em imagens e dividir bundles JavaScript para reduzir tempo de carregamento inicial.",
-      "author": "Lucas Mendes",
+      "author": "Lucas Andrade",
       "date": "2026-03-03",
-      "userId": 4
+      "userId": "1"
     }
   ],
   "users": [
