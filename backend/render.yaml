@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: blogging-api
+    plan: free
+    dockerfilePath: ./dockerfile
+    dockerContext: .
+    dockerImage: dodoomaisbrabro/blogging-api:latest
+    # Ou use buildFromGit: true se quiser que o Render faça build do Dockerfile
+    # buildFromGit: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        sync: false  # Será configurado automaticamente ao conectar o PostgreSQL
+      # Ou use variáveis individuais:
+      # - key: DB_HOST
+      #   sync: false
+      # - key: DB_PORT
+      #   sync: false
+      # - key: DB_USER
+      #   sync: false
+      # - key: DB_PASSWORD
+      #   sync: false
+      # - key: DB_NAME
+      #   sync: false
+
+databases:
+  - name: blogging-db
+    plan: free
+    databaseName: blog
+    user: blog_user
