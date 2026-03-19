@@ -30,9 +30,10 @@ const findPostsPaginated = async (page, limit) => {
 };
 exports.findPostsPaginated = findPostsPaginated;
 const findByIdPost = async (id) => {
-    const result = await database_1.default.query(`SELECT * FROM posts WHERE id = $1`, [
-        id,
-    ]);
+    const result = await database_1.default.query(`SELECT p.*, u.name as author_name
+     FROM posts p
+     INNER JOIN users u ON p.author_id = u.id
+     WHERE p.id = $1`, [id]);
     return result.rows[0];
 };
 exports.findByIdPost = findByIdPost;

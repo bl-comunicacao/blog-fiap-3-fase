@@ -1,18 +1,15 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-import Input from "../../components/Ui/Input"
-import Textarea from "../../components/Ui/Textarea"
-import Button from "../../components/Ui/Button"
-import Container from "../../components/Ui/Container"
-import Title from "../../components/Ui/Title"
-import { Form } from "./styles"
+import { Input, Textarea, Button, Container, Title } from "../../components/Ui"
 import api from "../../services/api"
+import useAuthStore from "../../stores/useAuthStore"
 
-import { FiType } from "react-icons/fi"
+import { FiType, FiUser } from "react-icons/fi"
 
 const CreatePost = () => {
   const navigate = useNavigate()
+  const user = useAuthStore((state) => state.user)
 
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
@@ -37,8 +34,8 @@ const CreatePost = () => {
         <p>Preencha os campos abaixo para adicionar um novo post</p>
       </Title>
 
-      <Form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form className="flex items-center flex-col gap-[1.6rem] w-full max-w-[96rem] mx-auto" onSubmit={handleSubmit}>
+        <div className="w-full flex flex-col gap-[1.6rem] [&>div]:max-w-full">
           <Input
             type="text"
             name="title"
@@ -46,6 +43,15 @@ const CreatePost = () => {
             icon={FiType}
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+          />
+
+          <Input
+            type="text"
+            name="author"
+            placeholder="Autor"
+            icon={FiUser}
+            value={user?.name || user?.email || "Professor(a) autenticado(a)"}
+            readOnly
           />
 
         </div>
@@ -58,13 +64,13 @@ const CreatePost = () => {
           onChange={(e) => setContent(e.target.value)}
         />
 
-        <div className="actions">
+        <div className="flex gap-[1.6rem] mt-[0.8rem]">
           <Button type="submit">Criar post</Button>
           <Button to="/dashboard" variant="secondary">
             Voltar
           </Button>
         </div>
-      </Form>
+      </form>
     </Container>
   )
 }

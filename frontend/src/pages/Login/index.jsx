@@ -1,8 +1,4 @@
-import Input from "../../components/Ui/Input"
-import Button from "../../components/Ui/Button"
-import Container from "../../components/Ui/Container"
-import Title from "../../components/Ui/Title"
-import { Logo, Form } from "./styles"
+import { Input, Button, Container, Title } from "../../components/Ui"
 import { FiUser, FiUnlock } from "react-icons/fi"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
@@ -55,19 +51,19 @@ const Login = () => {
     <>
       <Container>
         <Link to="/">
-          <Logo>
-            <img src={logo} alt="Logotipo do Blog" />
-            <p>
-              Blog<span>.</span>
+          <div className="flex items-center justify-center flex-col mb-[1.4rem]">
+            <img className="w-[5.6rem] mb-[1.2rem]" src={logo} alt="Logotipo do Blog" />
+            <p className="text-[4.2rem] font-normal text-[var(--white-light)]">
+              Blog<span className="text-[var(--blue-light)]">.</span>
             </p>
-          </Logo>
+          </div>
         </Link>
 
-        <Title size="md" align="center">
+        <Title className="text-[1.8rem] text-center">
           Área restrita para professores
         </Title>
 
-        <Form onSubmit={handleSubmit}>
+        <form className="flex items-center mt-10 flex-col gap-[1.6rem] w-full max-w-[38rem] mx-auto" onSubmit={handleSubmit}>
           <Input
             type="email"
             name="email"
@@ -109,7 +105,7 @@ const Login = () => {
           <Button to="/" $full variant="secondary">
             Voltar para home
           </Button>
-        </Form>
+        </form>
       </Container>
     </>
   )

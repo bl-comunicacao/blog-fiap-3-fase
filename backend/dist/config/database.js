@@ -1,7 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const pg_1 = require("pg");
+const logger_1 = __importDefault(require("../utils/logger"));
 // Ajusta configurações do banco quando rodando localmente (fora do Docker)
 // Se não estamos explicitamente em um container Docker, usa localhost:5433
 // Mas não ajusta em ambientes CI (GitHub Actions, etc)
@@ -63,7 +67,7 @@ const dbConfig = parseDatabaseUrl(process.env.DATABASE_URL) || {
 };
 // Log de debug (apenas em desenvolvimento)
 if (process.env.NODE_ENV !== "production") {
-    console.log("Configuração do banco de dados:", {
+    logger_1.default.info("Configuração do banco de dados:", {
         host: dbConfig.host,
         port: dbConfig.port,
         user: dbConfig.user,

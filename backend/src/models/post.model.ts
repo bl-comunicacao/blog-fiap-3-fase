@@ -36,9 +36,13 @@ export const findPostsPaginated = async (
 };
 
 export const findByIdPost = async (id: number): Promise<Post | undefined> => {
-  const result = await pool.query<Post>(`SELECT * FROM posts WHERE id = $1`, [
-    id,
-  ]);
+  const result = await pool.query<Post>(
+    `SELECT p.*, u.name as author_name
+     FROM posts p
+     INNER JOIN users u ON p.author_id = u.id
+     WHERE p.id = $1`,
+    [id]
+  );
   return result.rows[0];
 };
 

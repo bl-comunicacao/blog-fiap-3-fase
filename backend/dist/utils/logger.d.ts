@@ -1,7 +1,3 @@
-/**
- * Sistema de logging estruturado
- * Em produção, pode ser substituído por winston ou pino
- */
 interface LogMeta {
     [key: string]: any;
 }

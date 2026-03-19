@@ -2,6 +2,7 @@
  * Sistema de logging estruturado
  * Em produção, pode ser substituído por winston ou pino
  */
+import util from "node:util";
 
 interface LogMeta {
   [key: string]: any;
@@ -17,6 +18,10 @@ interface LogEntry {
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isTest = process.env.NODE_ENV === 'test';
 
+const writeLine = (line: string): void => {
+  process.stdout.write(`${line}\n`);
+};
+
 const formatMessage = (level: string, message: string, meta: LogMeta = {}): LogEntry => {
   const timestamp = new Date().toISOString();
   const logEntry: LogEntry = {
@@ -27,11 +32,10 @@ const formatMessage = (level: string, message: string, meta: LogMeta = {}): LogE
   };
 
   if (isDevelopment) {
-    // Em desenvolvimento, formatação mais legível
-    console.log(`[${timestamp}] ${level.toUpperCase()}: ${message}`, meta);
+    const metaString = Object.keys(meta).length > 0 ? ` ${util.inspect(meta, { depth: null })}` : "";
+    writeLine(`[${timestamp}] ${level.toUpperCase()}: ${message}${metaString}`);
   } else {
-    // Em produção, JSON estruturado
-    console.log(JSON.stringify(logEntry));
+    writeLine(JSON.stringify(logEntry));
   }
 
   return logEntry;

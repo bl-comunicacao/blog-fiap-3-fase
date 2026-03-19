@@ -1,10 +1,14 @@
-import { StyledTitle } from "./styles"
+const Title = ({  align, children, ...rest }) => {
 
-const Title = ({ size, align, children, ...rest }) => {
   return (
-    <StyledTitle $size={size} $align={align} {...rest}>
+    <h1
+      className={` font-normal mb-[3.2rem] ${
+        align === "center" ? "text-center" : align === "right" ? "text-right" : "text-left"
+      } [&>p]:text-[1.4rem] [&>p]:text-[var(--gray-5)] [&>p]:mt-[0.4rem]`}
+      {...rest}
+    >
       {children}
-    </StyledTitle>
+    </h1>
   )
 }
 

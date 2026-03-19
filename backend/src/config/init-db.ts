@@ -2,6 +2,7 @@ import pool from "./database";
 import fs from "fs";
 import path from "path";
 import bcrypt from "bcrypt";
+import logger from "../utils/logger";
 
 interface ErrorWithCode extends Error {
   code?: string;
@@ -19,7 +20,7 @@ async function seedInitialData(): Promise<void> {
     [SEED_USER_EMAIL]
   );
   if (userCheck.rows.length > 0) {
-    console.log("Usuário inicial (DR.Lohan Dias) já existe. Seed ignorado.");
+    logger.info("Usuário inicial (DR.Lohan Dias) já existe. Seed ignorado.");
     return;
   }
 
@@ -40,7 +41,7 @@ async function seedInitialData(): Promise<void> {
     ]
   );
 
-  console.log(
+  logger.info(
     "Seed executado: usuário DR.Lohan Dias e um post cadastrados (login: " +
       SEED_USER_EMAIL +
       ", senha: " +
@@ -66,7 +67,7 @@ async function waitForConnection(): Promise<void> {
       const code = (err as ErrorWithCode).code;
       if (code === "ECONNREFUSED" || code === "ENOTFOUND" || code === "ETIMEDOUT") {
         if (i < MAX_CONNECT_RETRIES - 1) {
-          console.log(
+          logger.info(
             `Aguardando Postgres (tentativa ${i + 1}/${MAX_CONNECT_RETRIES})...`
           );
           await delay(RETRY_DELAY_MS);
@@ -109,13 +110,13 @@ async function initDatabase(): Promise<void> {
       if (fs.existsSync(resolvedPath)) {
         const tablesSql = fs.readFileSync(resolvedPath, "utf8");
         await pool.query(tablesSql);
-        console.log("Tabelas criadas com sucesso.");
+        logger.info("Tabelas criadas com sucesso.");
       } else {
         console.error("Arquivo tables.sql não encontrado em:", fromCwd, "ou", fromDist);
         throw new Error("tables.sql não encontrado. Verifique o caminho do arquivo.");
       }
     } else {
-      console.log("Tabelas (users, posts) já existem. Nenhuma alteração foi feita no banco de dados.");
+      logger.info("Tabelas (users, posts) já existem. Nenhuma alteração foi feita no banco de dados.");
     }
 
     await seedInitialData();

@@ -1,17 +1,7 @@
-import {
-  HeaderContainer,
-  Container,
-  Items,
-  Logo,
-  Menu,
-  Nav,
-  NavLink,
-  NavButton,
-} from "./styles"
-
 import logo from "../../assets/svg/logo.svg"
 import useAuthStore from "../../stores/useAuthStore"
 import { useNavigate } from "react-router-dom"
+import Container from "../Ui/Container"
 
 const Header = () => {
   const navigate = useNavigate()
@@ -24,30 +14,30 @@ const Header = () => {
   }
 
   return (
-    <HeaderContainer>
+    <header className="w-full mt-[3.2rem] mb-[12.8rem] max-[800px]:mb-[6.4rem]">
       <Container>
-        <Items>
-          <Logo href="/">
+        <div className="flex items-center justify-between">
+          <a href="/">
             <img src={logo} alt="" />
-          </Logo>
+          </a>
 
-          <Menu>
-            <Nav>
+          <div>
+            <nav className="flex gap-[2rem]">
               {user ? (
                 <>
-                  <NavLink href="/dashboard">{user.name || user.email}</NavLink>
-                  <NavButton type="button" onClick={handleLogout}>
+                  <a className="block text-[1.8rem] text-[var(--white-light)] hover:opacity-80 transition-opacity" href="/dashboard">{user.name || user.email}</a>
+                  <button className="block text-[1.8rem] text-[var(--white-light)] bg-transparent border-none cursor-pointer hover:opacity-80 transition-opacity" type="button" onClick={handleLogout}>
                     Sair
-                  </NavButton>
+                  </button>
                 </>
               ) : (
-                <NavLink href="/login">Login</NavLink>
+                <a className="block text-[1.8rem] text-[var(--white-light)] hover:opacity-80 transition-opacity" href="/login">Login</a>
               )}
-            </Nav>
-          </Menu>
-        </Items>
+            </nav>
+          </div>
+        </div>
       </Container>
-    </HeaderContainer>
+    </header>
   )
 }
 

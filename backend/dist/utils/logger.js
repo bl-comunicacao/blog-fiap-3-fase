@@ -1,11 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Sistema de logging estruturado
  * Em produção, pode ser substituído por winston ou pino
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+const node_util_1 = __importDefault(require("node:util"));
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isTest = process.env.NODE_ENV === 'test';
+const writeLine = (line) => {
+    process.stdout.write(`${line}\n`);
+};
 const formatMessage = (level, message, meta = {}) => {
     const timestamp = new Date().toISOString();
     const logEntry = {
@@ -15,12 +22,11 @@ const formatMessage = (level, message, meta = {}) => {
         ...meta,
     };
     if (isDevelopment) {
-        // Em desenvolvimento, formatação mais legível
-        console.log(`[${timestamp}] ${level.toUpperCase()}: ${message}`, meta);
+        const metaString = Object.keys(meta).length > 0 ? ` ${node_util_1.default.inspect(meta, { depth: null })}` : "";
+        writeLine(`[${timestamp}] ${level.toUpperCase()}: ${message}${metaString}`);
     }
     else {
-        // Em produção, JSON estruturado
-        console.log(JSON.stringify(logEntry));
+        writeLine(JSON.stringify(logEntry));
     }
     return logEntry;
 };

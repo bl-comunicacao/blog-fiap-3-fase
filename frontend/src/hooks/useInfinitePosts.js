@@ -1,14 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import api from "../services/api"
+import {
+  DEFAULT_POSTS_PAGE_SIZE,
+  DEFAULT_SCROLL_OFFSET,
+} from "../constants/pagination"
 
 export default function useInfinitePosts({
   endpoint,
-  pageSize = 6,
-  scrollOffsetResolver = (viewportHeight) => viewportHeight / 2 + 50,
+  pageSize = DEFAULT_POSTS_PAGE_SIZE,
+  scrollOffsetResolver = DEFAULT_SCROLL_OFFSET,
   resetKey,
 }) {
   const [posts, setPosts] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [hasMorePosts, setHasMorePosts] = useState(true)
   const hasUserScrolledRef = useRef(false)
   const isLoadingRef = useRef(false)
   const hasNextPageRef = useRef(true)
@@ -32,7 +37,9 @@ export default function useInfinitePosts({
       if (Array.isArray(payload)) {
         const nextPosts = payload.slice(0, nextPage * pageSize)
         setPosts(nextPosts)
-        hasNextPageRef.current = nextPosts.length < payload.length
+        const hasNext = nextPosts.length < payload.length
+        hasNextPageRef.current = hasNext
+        setHasMorePosts(hasNext)
         pageRef.current = nextPage
         return
       }
@@ -41,7 +48,9 @@ export default function useInfinitePosts({
       const pagination = payload?.pagination
 
       setPosts((prevPosts) => (reset ? data : [...prevPosts, ...data]))
-      hasNextPageRef.current = Boolean(pagination?.hasNextPage)
+      const hasNext = Boolean(pagination?.hasNextPage)
+      hasNextPageRef.current = hasNext
+      setHasMorePosts(hasNext)
       pageRef.current = nextPage
     } finally {
       isLoadingRef.current = false
@@ -53,6 +62,7 @@ export default function useInfinitePosts({
     hasUserScrolledRef.current = false
     isLoadingRef.current = false
     hasNextPageRef.current = true
+    setHasMorePosts(true)
     pageRef.current = 1
     setPosts([])
     loadPosts(1, true)
@@ -90,6 +100,7 @@ export default function useInfinitePosts({
   return {
     posts,
     isLoading,
+    hasMorePosts,
     removePostById,
     reload: resetAndLoad,
   }

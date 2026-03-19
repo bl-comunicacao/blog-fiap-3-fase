@@ -1,17 +1,11 @@
-import Input from "../../components/Ui/Input"
-import Textarea from "../../components/Ui/Textarea"
-import Button from "../../components/Ui/Button"
-import Container from "../../components/Ui/Container"
-import Title from "../../components/Ui/Title"
-import { Form } from "./styles"
+import { Input, Textarea, Button, Container, Title, Modal } from "../../components/Ui"
 
 import { FiType, FiFileText } from "react-icons/fi"
 
 import { useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import api from "../../services/api"
-import usePostById from "../../hooks/usePostById"
-import Modal from "../../components/Ui/Modal"
+import { usePostById } from "../../hooks"
 
 const EditPost = () => {
   const { idPost } = useParams()
@@ -74,8 +68,8 @@ const EditPostForm = ({ idPost, initialTitle, initialContent, onSuccess }) => {
         <p>Atualize os campos abaixo para editar</p>
       </Title>
 
-      <Form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form className="flex items-center flex-col gap-[1.6rem] w-full max-w-[96rem] mx-auto" onSubmit={handleSubmit}>
+        <div className="w-full flex flex-col gap-[1.6rem] [&>div]:max-w-full">
           <Input
             type="text"
             name="title"
@@ -109,14 +103,14 @@ const EditPostForm = ({ idPost, initialTitle, initialContent, onSuccess }) => {
           required
         />
 
-        <div className="actions">
+        <div className="flex gap-[1.6rem] mt-[0.8rem]">
           <Button type="submit">Editar post</Button>
 
           <Button to="/dashboard" variant="secondary">
             Voltar
           </Button>
         </div>
-      </Form>
+      </form>
 
       <Modal
         open={isConfirmModalOpen}

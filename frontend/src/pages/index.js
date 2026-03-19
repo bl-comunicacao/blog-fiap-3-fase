@@ -1,0 +1,8 @@
+export { default as CreatePost } from "./CreatePost"
+export { default as Dashboard } from "./Dashboard"
+export { default as EditPost } from "./EditPost"
+export { default as Login } from "./Login"
+export { default as Main } from "./Main"
+export { default as NotFound } from "./NotFound"
+export { default as Post } from "./Post"
+export { default as Search } from "./Search"

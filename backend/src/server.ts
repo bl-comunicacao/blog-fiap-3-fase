@@ -1,6 +1,7 @@
 import "dotenv/config";
 import app from "./app";
 import initDatabase from "./config/init-db";
+import logger from "./utils/logger";
 
 const PORT: number = parseInt(process.env.PORT || "3000", 10);
 
@@ -9,7 +10,7 @@ const PORT: number = parseInt(process.env.PORT || "3000", 10);
     await initDatabase();
 
     app.listen(PORT, "0.0.0.0", () => {
-      console.log(`O server rodando na porta ${PORT}`);
+      logger.info(`O server rodando na porta ${PORT}`);
     });
   } catch (error) {
     const err = error as Error;

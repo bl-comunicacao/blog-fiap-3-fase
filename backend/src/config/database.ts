@@ -1,5 +1,6 @@
 import "dotenv/config";
 import { Pool, PoolConfig } from "pg";
+import logger from "../utils/logger";
 
 // Ajusta configurações do banco quando rodando localmente (fora do Docker)
 // Se não estamos explicitamente em um container Docker, usa localhost:5433
@@ -67,7 +68,7 @@ const dbConfig = parseDatabaseUrl(process.env.DATABASE_URL) || {
 
 // Log de debug (apenas em desenvolvimento)
 if (process.env.NODE_ENV !== "production") {
-  console.log("Configuração do banco de dados:", {
+  logger.info("Configuração do banco de dados:", {
     host: dbConfig.host,
     port: dbConfig.port,
     user: dbConfig.user,

@@ -1,7 +1,4 @@
-import Button from "../../components/Ui/Button"
-import Container from "../../components/Ui/Container"
-import Title from "../../components/Ui/Title"
-import { Logo, Content } from "./styles"
+import { Button, Container, Title } from "../../components/Ui"
 
 import { Link } from "react-router-dom"
 
@@ -12,24 +9,24 @@ const NotFound = () => {
     <>
       <Container>
         <Link to="/">
-          <Logo>
-            <img src={logo} alt="Logotipo do Blog" />
-            <p>
-              Blog<span>.</span>
+          <div className="flex items-center justify-center flex-col mb-[6.4rem]">
+            <img className="w-[5.6rem] mb-[1.2rem]" src={logo} alt="Logotipo do Blog" />
+            <p className="text-[4.2rem] font-normal text-[var(--white-light)]">
+              Blog<span className="text-[var(--blue-light)]">.</span>
             </p>
-          </Logo>
+          </div>
         </Link>
 
         <Title size="md" align="center">
           Página não encontrada!
         </Title>
 
-        <Content>
-          <p>A página que você tá procurando não existe ou foi removida.</p>
+        <div className="w-full max-w-[47rem] mx-auto">
+          <p className="text-[1.6rem] font-normal text-center text-[var(--gray-5)] mb-[3.2rem]">A página que você tá procurando não existe ou foi removida.</p>
           <Button to="/login" $full>
             Voltar para home
           </Button>
-        </Content>
+        </div>
       </Container>
     </>
   )

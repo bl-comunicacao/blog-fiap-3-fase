@@ -7,6 +7,7 @@ const database_1 = __importDefault(require("./database"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const logger_1 = __importDefault(require("../utils/logger"));
 const SEED_USER_EMAIL = "drlohan@blog.local";
 const SEED_USER_NAME = "DR.Lohan Dias";
 const SEED_USER_PASSWORD = "123456";
@@ -15,7 +16,7 @@ const SALT_ROUNDS = 10;
 async function seedInitialData() {
     const userCheck = await database_1.default.query("SELECT id FROM users WHERE email = $1", [SEED_USER_EMAIL]);
     if (userCheck.rows.length > 0) {
-        console.log("Usuário inicial (DR.Lohan Dias) já existe. Seed ignorado.");
+        logger_1.default.info("Usuário inicial (DR.Lohan Dias) já existe. Seed ignorado.");
         return;
     }
     const password_hash = await bcrypt_1.default.hash(SEED_USER_PASSWORD, SALT_ROUNDS);
@@ -28,7 +29,7 @@ async function seedInitialData() {
         "Este é o primeiro post. Olá, eu sou o DR.Lohan Dias.",
         userId,
     ]);
-    console.log("Seed executado: usuário DR.Lohan Dias e um post cadastrados (login: " +
+    logger_1.default.info("Seed executado: usuário DR.Lohan Dias e um post cadastrados (login: " +
         SEED_USER_EMAIL +
         ", senha: " +
         SEED_USER_PASSWORD +
@@ -50,7 +51,7 @@ async function waitForConnection() {
             const code = err.code;
             if (code === "ECONNREFUSED" || code === "ENOTFOUND" || code === "ETIMEDOUT") {
                 if (i < MAX_CONNECT_RETRIES - 1) {
-                    console.log(`Aguardando Postgres (tentativa ${i + 1}/${MAX_CONNECT_RETRIES})...`);
+                    logger_1.default.info(`Aguardando Postgres (tentativa ${i + 1}/${MAX_CONNECT_RETRIES})...`);
                     await delay(RETRY_DELAY_MS);
                 }
                 else {
@@ -90,7 +91,7 @@ async function initDatabase() {
             if (fs_1.default.existsSync(resolvedPath)) {
                 const tablesSql = fs_1.default.readFileSync(resolvedPath, "utf8");
                 await database_1.default.query(tablesSql);
-                console.log("Tabelas criadas com sucesso.");
+                logger_1.default.info("Tabelas criadas com sucesso.");
             }
             else {
                 console.error("Arquivo tables.sql não encontrado em:", fromCwd, "ou", fromDist);
@@ -98,7 +99,7 @@ async function initDatabase() {
             }
         }
         else {
-            console.log("Tabelas (users, posts) já existem. Nenhuma alteração foi feita no banco de dados.");
+            logger_1.default.info("Tabelas (users, posts) já existem. Nenhuma alteração foi feita no banco de dados.");
         }
         await seedInitialData();
     }

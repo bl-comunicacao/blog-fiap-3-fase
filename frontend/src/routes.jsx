@@ -1,14 +1,16 @@
 import { Routes, Route } from "react-router-dom"
+import { ProtectedRoute } from "./components"
 
-import Login from "./pages/Login"
-import Search from "./pages/Search"
-import Main from "./pages/Main"
-import Post from "./pages/Post"
-import NotFound from "./pages/NotFound"
-
-import Dashboard from "./pages/Dashboard"
-import CreatePost from "./pages/CreatePost"
-import EditPost from "./pages/EditPost"
+import {
+  Login,
+  Search,
+  Main,
+  Post,
+  NotFound,
+  Dashboard,
+  CreatePost,
+  EditPost,
+} from "./pages"
 
 const AppRoutes = () => {
   return (
@@ -19,9 +21,30 @@ const AppRoutes = () => {
       <Route path="/search/:word_search" element={<Search />} />
       <Route path="*" element={<NotFound />} />
 
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/create-post" element={<CreatePost />} />
-      <Route path="/edit-post/:idPost" element={<EditPost />} />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/create-post"
+        element={
+          <ProtectedRoute>
+            <CreatePost />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/edit-post/:idPost"
+        element={
+          <ProtectedRoute>
+            <EditPost />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   )
 }
