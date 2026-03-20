@@ -1,0 +1,11 @@
+import { AppError } from "./AppError";
+
+/**
+ * Erro para acesso não autorizado (401)
+ */
+export class UnauthorizedError extends AppError {
+  constructor(message: string = "Não autorizado") {
+    super(message, 401);
+    this.name = "UnauthorizedError";
+  }
+}
