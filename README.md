@@ -1,42 +1,79 @@
-💻 Blog App - Frontend
+# 💻 Blog App - Frontend
 
-Este é o módulo de Front-end do projeto de conclusão da fase de Full Stack Development da FIAP. A aplicação consiste na interface de um Blog com área administrativa para gerenciamento e leitura de postagens.
+Este é o módulo de **Front-end** do projeto de conclusão da fase de Full Stack Development da FIAP.
+A aplicação consiste na interface de um blog com área administrativa para gerenciamento e leitura de postagens.
 
-🛠 Tecnologias Utilizadas
+---
 
-A interface foi construída com foco em performance e componentização, utilizando as seguintes tecnologias:
+## 🛠 Tecnologias Utilizadas
 
-React: Biblioteca principal para construção da UI.
-Vite: Bundler ultrarrápido para desenvolvimento.
-Tailwind CSS: Framework de CSS utilitário para estilização rápida e responsiva.
-Axios: Cliente HTTP para comunicação com a API REST.
-React Router: Gerenciamento das rotas e navegação da aplicação (Páginas Públicas vs. Área Restrita).
+* **React** — Construção da interface
+* **Vite** — Bundler para desenvolvimento rápido
+* **Tailwind CSS** — Estilização responsiva
+* **Axios** — Requisições HTTP
+* **React Router** — Gerenciamento de rotas
 
-🚀 Funcionalidades
+---
 
-Autenticação Segura: Tela de login com integração via JWT (JSON Web Token).
-Painel Administrativo: Acesso restrito para usuários autenticados gerenciarem e visualizarem as postagens (Dashboard).
-Consumo de API: Integração direta com o backend Node.js para listagem dinâmica do conteúdo.
+## 🚀 Funcionalidades
 
-⚙️ Como executar o projeto localmente
+* 🔐 Autenticação via JWT
+* 📊 Painel administrativo (Dashboard)
+* 🔄 Consumo de API REST (Node.js)
 
-Pré-requisitos
-Certifique-se de que o Back-end e o Banco de Dados (Docker) já estejam rodando em sua máquina antes de iniciar o front-end.
-Clone o repositório e acesse a pasta do frontend:```bash
+---
+
+## ⚙️ Como executar o projeto
+
+### 📌 Pré-requisitos
+
+Antes de iniciar o front-end, certifique-se de que:
+
+* O **Back-end** está rodando
+* O **Banco de Dados (Docker)** está ativo
+
+---
+
+### 📥 Instalação
+
+Clone o repositório e acesse a pasta:
+
+```bash
 cd frontend
-Instale as dependências do projeto:
+```
 
-Bash
+Instale as dependências:
+
+```bash
 npm install
-Configure as Variáveis de Ambiente:
-Crie um arquivo .env na raiz da pasta frontend e adicione a URL da API.
+```
 
-Atenção (Usuários de macOS): Para evitar conflitos de resolução IPv6 do Node.js, utilize o IP explícito 127.0.0.1 no lugar de localhost.
+---
 
-Snippet de código
-VITE_API_URL=[http://127.0.0.1:3000](http://127.0.0.1:3000)
-Inicie o servidor de desenvolvimento:
+### 🔧 Variáveis de ambiente
 
-Bash
+Crie um arquivo `.env` na raiz da pasta `frontend`:
+
+```env
+VITE_API_URL=http://127.0.0.1:3000
+```
+
+> ⚠️ **macOS:** utilize `127.0.0.1` em vez de `localhost` para evitar problemas com IPv6.
+
+---
+
+### ▶️ Executando o projeto
+
+```bash
 npm run dev
-Acesse a aplicação no seu navegador padrão: http://localhost:5173/
+```
+
+---
+
+### 🌐 Acesso
+
+Abra no navegador:
+
+```
+http://localhost:5173/
+```
